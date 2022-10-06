@@ -1,1 +1,1 @@
-echo PORT $PORT web: sh setup.sh && streamlit run --server.port $PORT rebound_app.py 
+web: sh setup.sh && streamlit run --server.enableCORS false --server.port $PORT app.py && uvicorn main:app --host=127.0.0.1 --port=${PORT:-8000}
